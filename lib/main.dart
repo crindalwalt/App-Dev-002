@@ -3,41 +3,48 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: HomePage(),
+    home: HomeScreen(),
   ));
 }
 
-class HomePage extends StatelessWidget {
-  String content = "Shahzad Farooq";
-
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teal,
       appBar: AppBar(
-        backgroundColor: Colors.pinkAccent,
-        title: const Text(
-          "Nutri addso",
-          style: TextStyle(color: Colors.white),
-        ),
+        leading: Icon(Icons.home),
+        title: Text("Instagram"),
+        backgroundColor: Colors.grey,
+        actions: [
+          Icon(Icons.search),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Icon(Icons.add),
+          ),
+        ],
       ),
       body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 97, 150, 0),
-            borderRadius: BorderRadius.circular(12),
+          child: Container(
+        decoration: BoxDecoration(
+          color: Colors.green,
+          borderRadius: BorderRadius.circular(26),
+          border: Border.all(
+            width: 3,
+            color: Colors.red,
+            style: BorderStyle.solid,
           ),
-          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          width: 200,
-          // height: 100,
-          child: Text(
-            content,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.white,
-            ),
+          image: DecorationImage(
+            fit: BoxFit.fill,
+              image: AssetImage("assets/images/box_bg.jpg")
           ),
         ),
-      ),
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.zero,
+        width: 150,
+        height: 150,
+
+      )),
     );
   }
 }
