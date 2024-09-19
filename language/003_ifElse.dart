@@ -1,10 +1,10 @@
 void main() {
-  int age = 17;
-  print(age);
-
-  if (age >= 17) {
-    print("age is greater then 17");
+  int age = 24;
+  if (age >= 18) {
+    // code if condition is true
+    print("You are alowed to apply for a driving lisence");
   } else {
-    print("age is smaller then 17");
+    // code if condition is false
+    print("You are not allowed apply for driving lisence");
   }
 }

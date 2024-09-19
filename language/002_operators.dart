@@ -7,18 +7,21 @@ void main() {
    * logical (and , or , not )
    */
 
-  int num1 = 14;
+  int num1 = 64;
   int num2 = 64;
   int result = num1 + num2;
   result = num2 - num1;
   result = num1 * num2;
   double division = num2 / num1;
-  bool condition = num1 < num2;
+  bool condition = num1 == num2;
   condition = num1 > num2;
-  condition = num1 == num2;
+  condition = num1 == num2 && num1 < 7;
+
+  double val = 34;
+  val /= 2;
 
   // print(condition);
-
+  print("The answer is = ${condition}");
   // print(result);
   // print(division);
 
