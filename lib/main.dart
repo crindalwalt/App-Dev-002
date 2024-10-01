@@ -1,50 +1,74 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: HomeScreen(),
-  ));
+  runApp(
+    MaterialApp(
+      home: EntryPoint(),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
 }
 
-class HomeScreen extends StatelessWidget {
+class EntryPoint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Widget page = Scaffold(
+
+    // );
+    // return page;
+
+    Color primaryColor = Colors.green;
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: const Color.fromARGB(255, 163, 164, 165),
       appBar: AppBar(
-        leading: Icon(Icons.home),
-        title: Text("Instagram"),
-        backgroundColor: Colors.grey,
-        actions: [
-          Icon(Icons.search),
+        leading: const Icon(Icons.home),
+        title: const Text("My School"),
+        backgroundColor: primaryColor,
+        centerTitle: true,
+        actions: const [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Icon(Icons.add),
-          ),
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.search),
+          )
         ],
       ),
-      body: Center(
-          child: Container(
+      body: const Center(
+        child: Text("Hy There"),
+      ),
+      floatingActionButton: Container(
+        width: 130,
+        height: 50,
         decoration: BoxDecoration(
-          color: Colors.green,
-          borderRadius: BorderRadius.circular(26),
-          border: Border.all(
-            width: 3,
-            color: Colors.red,
-            style: BorderStyle.solid,
-          ),
-          image: DecorationImage(
-            fit: BoxFit.fill,
-              image: AssetImage("assets/images/box_bg.jpg")
+          // color: primaryColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              print("Button is clicked");
+            },
+            child: Text("Welcome ME"),
           ),
         ),
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.zero,
-        width: 150,
-        height: 150,
-
-      )),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
+        elevation: 2,
+        currentIndex: 0,
+        mouseCursor: MouseCursor.defer,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+            backgroundColor: primaryColor,
+            // tooltip: "Home Page",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.library_add), label: "Library"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
+      ),
     );
   }
 }

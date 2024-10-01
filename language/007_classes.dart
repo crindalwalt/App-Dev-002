@@ -24,8 +24,7 @@ class Greet {
     print("Hello ${isMale! ? "Mr." : "Mrs"} ${name!} ! Have a wonderfull day");
   }
 }
-
-
+// 
 
 
 // class Animal {
