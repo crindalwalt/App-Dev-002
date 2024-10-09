@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_training/widgets/scroll_pill.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -8,7 +9,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xffccd5ae),
         title: const Text("Tut App"),
-        leading: const Icon(Icons.home),
+        leading: const Icon(Icons.menu),
         actions: const [
           Padding(
             padding: const EdgeInsets.all(12.0),
@@ -59,7 +60,21 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(),
+            Container(
+              width: double.infinity,
+              height: 50,
+              margin: EdgeInsets.symmetric(vertical: 18, horizontal: 0),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  ScrollPill(Colors.blue, "Classic"),
+                  ScrollPill(Colors.green, "Modern"),
+                  ScrollPill(Colors.red, "latest"),
+                  ScrollPill(Colors.purple, "Orignal"),
+                  ScrollPill(Colors.yellow, "Popular"),
+                ],
+              ),
+            ),
           ],
         ),
       ),
