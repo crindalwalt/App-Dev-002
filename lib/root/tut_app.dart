@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_training/screens/another_screen.dart';
 import 'package:flutter_basic_training/screens/home_screen.dart';
 
 class TutApp extends StatelessWidget {
@@ -6,7 +7,7 @@ class TutApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: AnotherScreen(),
     );
   }
 }
