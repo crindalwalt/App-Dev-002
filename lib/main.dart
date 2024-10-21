@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_training/root/tut_app.dart';
+import 'package:flutter_basic_training/screens/home_screen.dart';
 
 void main() {
-  runApp(
-    TutApp(),
-  );
+  runApp(MovishApp());
+}
+// Root App
+class MovishApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+    );
+  }
 }
