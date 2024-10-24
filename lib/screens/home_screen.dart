@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_training/widgets/featured_card.dart';
+import 'package:flutter_basic_training/widgets/popular_movie_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -40,6 +41,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 200,
+
             child: PageView(
               controller: _myPageController,
               children: [
@@ -47,7 +49,6 @@ class HomeScreen extends StatelessWidget {
                 FeaturedCard(),
                 FeaturedCard(),
                 FeaturedCard(),
-
               ],
             ),
           ),
@@ -55,12 +56,39 @@ class HomeScreen extends StatelessWidget {
             controller: _myPageController,
             count: 4,
             effect: ExpandingDotsEffect(
-              dotWidth: 10,
-              dotHeight: 10,
-              dotColor: Colors.grey,
-              activeDotColor: Colors.orange
+                dotWidth: 10,
+                dotHeight: 10,
+                dotColor: Colors.grey,
+                activeDotColor: Colors.orange),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Popular",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                Text("See All",
+                  style: TextStyle(color: Colors.grey, fontSize: 16),),
+              ],
             ),
-          )
+          ),
+          Container(
+            // width: double.infinity,
+            height: 280,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                PopularMovieCard(),
+                PopularMovieCard(),
+                PopularMovieCard(),
+                PopularMovieCard(),
+                PopularMovieCard(),
+              ],
+            ),
+          ),
         ],
       ),
     );

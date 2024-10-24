@@ -15,19 +15,29 @@ class _FeaturedCardState extends State<FeaturedCard> {
       child: Container(
           width: double.infinity,
           height: 150,
-          color: Colors.red,
+          decoration:  BoxDecoration(
+
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.red,
+          ),
           child: Stack(
             children: [
-              Image(
-                image: NetworkImage("https://picsum.photos/400/200"),
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: double.infinity,
+              ClipRRect(
+
+                borderRadius: BorderRadius.circular(20),
+                child: Image(
+                  image: NetworkImage("https://picsum.photos/400/200"),
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
               ),
               Container(
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
+
+                  borderRadius: BorderRadius.circular(20),
                   gradient: LinearGradient(colors: [
                     Colors.blue.withOpacity(.8),
                     Colors.blue.withOpacity(.8),
@@ -41,8 +51,18 @@ class _FeaturedCardState extends State<FeaturedCard> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("something"),
-                    Text("something"),
+                    Text("Batman ",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text("New Movie",
+                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15,color: Colors.black.withOpacity(.8)),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
                     ElevatedButton(
                       onPressed: () {},
                       child: Text("Click me"),
