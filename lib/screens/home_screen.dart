@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_training/screens/setting_screen.dart';
 import 'package:flutter_basic_training/widgets/featured_card.dart';
 import 'package:flutter_basic_training/widgets/popular_movie_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -41,7 +42,6 @@ class HomeScreen extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 200,
-
             child: PageView(
               controller: _myPageController,
               children: [
@@ -70,8 +70,17 @@ class HomeScreen extends StatelessWidget {
                   "Popular",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
-                Text("See All",
-                  style: TextStyle(color: Colors.grey, fontSize: 16),),
+                InkWell(
+                  onTap: () {
+                    print("see all button is clicked");
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SettingScreen()));
+                  },
+                  child: Text(
+                    "See All",
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                ),
               ],
             ),
           ),
