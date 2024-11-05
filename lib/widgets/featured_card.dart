@@ -52,13 +52,13 @@ class _FeaturedCardState extends State<FeaturedCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Batman ",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                     const SizedBox(
                       height: 5,
                     ),
                     Text("New Movie",
-                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15,color: Colors.black.withOpacity(.8)),
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     const SizedBox(
                       height: 5,

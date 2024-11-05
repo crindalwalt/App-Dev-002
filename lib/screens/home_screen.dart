@@ -10,13 +10,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color primary = Theme.of(context).primaryColor;
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.menu),
         actions: [
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Icon(Icons.shopping_cart),
+            child: Icon(Icons.shopping_cart,color: primary  ,),
           )
         ],
       ),
@@ -59,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                 dotWidth: 10,
                 dotHeight: 10,
                 dotColor: Colors.grey,
-                activeDotColor: Colors.orange),
+                activeDotColor: Colors.red),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
