@@ -19,7 +19,11 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: const Icon(Icons.chevron_left),
+          leading: InkWell(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Icon(Icons.chevron_left)),
           title: Text(
             string_text,
             style: TextStyle(fontWeight: FontWeight.bold),
@@ -206,6 +210,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                     print("value changed to ${val}");
                                     setState(() {
                                       isSwitched = val;
+                                      if (val) {
+                                        print(
+                                            "dark mode should be implemented");
+                                      } else {
+                                        print(
+                                            "Light mode should be implemented");
+                                      }
                                     });
                                   })
                             ],

@@ -10,96 +10,110 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color primary = Theme.of(context).primaryColor;
+    Color primaryColor = Theme.of(context).primaryColor;
+    // Color primary = Theme.of(context).primaryColor;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: primaryColor,
         leading: Icon(Icons.menu),
         actions: [
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Icon(Icons.shopping_cart,color: primary  ,),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return SettingScreen();
+                }));
+              },
+              child: Icon(
+                Icons.settings,
+              ),
+            ),
           )
         ],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: TextField(
-              decoration: InputDecoration(
-                  hintText: "Search Here",
-                  prefixIcon: Icon(Icons.search),
-                  suffixIcon: Icon(CupertinoIcons.tuningfork),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.purple,
-                      width: 3,
-                      style: BorderStyle.solid,
-                    ),
-                    borderRadius: BorderRadius.circular(15),
-                  )),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextField(
+                decoration: InputDecoration(
+                    hintText: "Search Here",
+                    prefixIcon: Icon(Icons.search),
+                    suffixIcon: Icon(CupertinoIcons.tuningfork),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.purple,
+                        width: 3,
+                        style: BorderStyle.solid,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    )),
+              ),
             ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 200,
-            child: PageView(
+            Container(
+              width: double.infinity,
+              height: 200,
+              child: PageView(
+                controller: _myPageController,
+                children: [
+                  FeaturedCard(),
+                  FeaturedCard(),
+                  FeaturedCard(),
+                  FeaturedCard(),
+                ],
+              ),
+            ),
+            SmoothPageIndicator(
               controller: _myPageController,
-              children: [
-                FeaturedCard(),
-                FeaturedCard(),
-                FeaturedCard(),
-                FeaturedCard(),
-              ],
+              count: 4,
+              effect: ExpandingDotsEffect(
+                  dotWidth: 10,
+                  dotHeight: 10,
+                  dotColor: Colors.grey,
+                  activeDotColor: Colors.red),
             ),
-          ),
-          SmoothPageIndicator(
-            controller: _myPageController,
-            count: 4,
-            effect: ExpandingDotsEffect(
-                dotWidth: 10,
-                dotHeight: 10,
-                dotColor: Colors.grey,
-                activeDotColor: Colors.red),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Popular",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-                InkWell(
-                  onTap: () {
-                    print("see all button is clicked");
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SettingScreen()));
-                  },
-                  child: Text(
-                    "See All",
-                    style: TextStyle(color: Colors.grey, fontSize: 16),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Popular",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                ),
-              ],
+                  InkWell(
+                    onTap: () {
+                      print("see all button is clicked");
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => SettingScreen()));
+                    },
+                    child: Text(
+                      "See All",
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Container(
-            // width: double.infinity,
-            height: 280,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                PopularMovieCard(),
-                PopularMovieCard(),
-                PopularMovieCard(),
-                PopularMovieCard(),
-                PopularMovieCard(),
-              ],
+            Container(
+              // width: double.infinity,
+              height: 280,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  PopularMovieCard(),
+                  PopularMovieCard(),
+                  PopularMovieCard(),
+                  PopularMovieCard(),
+                  PopularMovieCard(),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
