@@ -11,15 +11,20 @@ void main() {
 // Root App
 class MovishApp extends StatelessWidget {
   MyThemes myCustomThemes = MyThemes();
-  ThemeManager themeManager = ThemeManager();
+  ThemeManager themer = ThemeManager();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: myCustomThemes.myLightTheme,
-      darkTheme: myCustomThemes.myDarkTheme,
-      themeMode: ThemeMode.dark,
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+    return AnimatedBuilder(
+      animation: themer,
+      builder: (context, _) {
+        return MaterialApp(
+          theme: myCustomThemes.myLightTheme,
+          darkTheme: myCustomThemes.myDarkTheme,
+          themeMode: themer.themeMode,
+          debugShowCheckedModeBanner: false,
+          home: LoginScreen(),
+        );
+      },
     );
   }
 }

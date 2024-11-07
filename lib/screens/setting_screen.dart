@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_training/utils/theme/theme_manager.dart';
 
 class SettingScreen extends StatefulWidget {
+  ThemeManager themeManager = ThemeManager();
   @override
   State<SettingScreen> createState() {
     return _SettingScreenState();
@@ -9,6 +11,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   bool isSwitched = false;
+  // bool isDarkMode = widget.themeManager.themeMode == ThemeMode.dark;
   TextStyle boldHeadings = TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 18,
@@ -205,20 +208,13 @@ class _SettingScreenState extends State<SettingScreen> {
                           Row(
                             children: [
                               Switch(
-                                  value: isSwitched,
-                                  onChanged: (val) {
-                                    print("value changed to ${val}");
-                                    setState(() {
-                                      isSwitched = val;
-                                      if (val) {
-                                        print(
-                                            "dark mode should be implemented");
-                                      } else {
-                                        print(
-                                            "Light mode should be implemented");
-                                      }
-                                    });
-                                  })
+                                value: widget.themeManager.themeMode ==
+                                    ThemeMode.dark,
+                                onChanged: (newValue) {
+                                  widget.themeManager.turnDarkModeOn(newValue);
+                                  setState(() {});
+                                },
+                              ),
                             ],
                           ),
                         ],
