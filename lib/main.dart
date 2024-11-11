@@ -22,7 +22,9 @@ class MovishApp extends StatelessWidget {
           darkTheme: myCustomThemes.myDarkTheme,
           themeMode: themer.themeMode,
           debugShowCheckedModeBanner: false,
-          home: LoginScreen(),
+          home: LoginScreen(
+            themeManager: themer,
+          ),
         );
       },
     );

@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic_training/utils/theme/theme_manager.dart';
 
 class SettingScreen extends StatefulWidget {
-  ThemeManager themeManager = ThemeManager();
+  ThemeManager themeController;
+  SettingScreen({
+    super.key,
+    required this.themeController,
+  });
+  // ThemeManager themeManager = ThemeManager();
   @override
   State<SettingScreen> createState() {
     return _SettingScreenState();
@@ -208,10 +213,10 @@ class _SettingScreenState extends State<SettingScreen> {
                           Row(
                             children: [
                               Switch(
-                                value: widget.themeManager.themeMode ==
+                                value: widget.themeController.themeMode ==
                                     ThemeMode.dark,
-                                onChanged: (newValue) {
-                                  widget.themeManager.turnDarkModeOn(newValue);
+                                onChanged: (newVal) {
+                                  widget.themeController.turnDarkModeOn(newVal);
                                   setState(() {});
                                 },
                               ),

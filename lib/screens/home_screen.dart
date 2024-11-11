@@ -1,11 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_training/screens/setting_screen.dart';
+import 'package:flutter_basic_training/utils/theme/theme_manager.dart';
 import 'package:flutter_basic_training/widgets/featured_card.dart';
 import 'package:flutter_basic_training/widgets/popular_movie_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatelessWidget {
+  ThemeManager themeManager;
+  HomeScreen({
+    super.key,
+    required this.themeManager,
+  });
   PageController _myPageController = PageController();
 
   @override
@@ -23,7 +29,9 @@ class HomeScreen extends StatelessWidget {
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return SettingScreen();
+                  return SettingScreen(
+                    themeController: themeManager,
+                  );
                 }));
               },
               child: Icon(
@@ -88,7 +96,9 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       print("see all button is clicked");
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => SettingScreen()));
+                          builder: (context) => SettingScreen(
+                                themeController: themeManager,
+                              )));
                     },
                     child: Text(
                       "See All",

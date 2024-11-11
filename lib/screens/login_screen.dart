@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_training/screens/home_screen.dart';
 import 'package:flutter_basic_training/screens/register_screen.dart';
+import 'package:flutter_basic_training/utils/theme/theme_manager.dart';
 
 class LoginScreen extends StatelessWidget {
+  ThemeManager themeManager;
+  LoginScreen({
+    super.key,
+    required this.themeManager,
+  });
+  // LoginScreen({super.key, required this.themeManager});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,8 +80,10 @@ class LoginScreen extends StatelessWidget {
                 // height: ,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => HomeScreen(
+                              themeManager: themeManager,
+                            )));
                   },
                   child: Text("Login"),
                   style: ButtonStyle(
@@ -140,7 +149,9 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (context) {
-                        return RegisterScreen();
+                        return RegisterScreen(
+                          halwa: themeManager,
+                        );
                       }));
                     },
                     child: Text(
